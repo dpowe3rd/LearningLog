@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Home {% endblock title %}</title>
+</head>
+<body>
+<h1>{% block header %}Place Holder{% endblock header %}</h1>
+<ul>
+    <li><a href="{% url 'learning_logs:index' %}">Homepage</a></li>
+    <li><a href="{% url 'learning_logs:topics' %}">Anime Topics Page</a></li>
+</ul>
+{% block content %}
+    <p>Empty for now</p>
+{% endblock %}
+</body>
+</html>
