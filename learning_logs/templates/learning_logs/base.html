@@ -5,11 +5,18 @@
     <title>{% block title %} Home {% endblock title %}</title>
 </head>
 <body>
-<h1>{% block header %}Place Holder{% endblock header %}</h1>
-<ul>
-    <li><a href="{% url 'learning_logs:index' %}">Homepage</a></li>
-    <li><a href="{% url 'learning_logs:topics' %}">Anime Topics Page</a></li>
-</ul>
+<h3>{% block header %}Place Holder{% endblock header %}</h3>
+<p>
+    <a href="{% url 'learning_logs:index' %}">Homepage</a>-
+    <a href="{% url 'learning_logs:topics' %}">Anime Topics Page</a>-
+
+{% if user.is_authenticated %}
+    Hello, <strong>{{ user.username }}</strong>.
+    <a href="{% url 'users:logout' %}">Log Out</a>
+    {% else %}
+    <a href="{% url 'users:login' %}">Log In</a>
+    {% endif %}
+</p>
 {% block content %}
     <p>Empty for now</p>
 {% endblock %}

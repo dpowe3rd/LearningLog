@@ -80,3 +80,20 @@ def edit_entry(request, entry_id):
 
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'learning_logs/edit_entry.html', context)
+
+
+def delete_entry(request, entry_id):
+    """Delete a selected/existing entry"""
+    entry = Entry.objects.get(id=entry_id)
+    topic = entry.topic
+    # entry.delete()
+
+    if request.method != 'POST':
+        # Initial request; pre-fill form with the current entry.
+        form = EntryForm(instance=entry)
+    else:
+        entry.delete()
+        return HttpResponseRedirect(reverse('learning_logs:topic', args=[topic.id]))
+
+    context = {'entry': entry, 'topic': topic, 'form': form}
+    return render(request, 'learning_logs/delete_entry.html', context)
