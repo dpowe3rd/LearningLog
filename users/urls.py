@@ -9,7 +9,9 @@ app_name = 'users'
 urlpatterns = [
     # Login Page
     path('login/', LoginView.as_view(template_name='users/login.html'), name='login'),
+    # Log out page
     path('logout/', views.logout_view, name='logout'),
-
+    # Registration page
+    path('registration/', views.register, name='register'),
 
 ]

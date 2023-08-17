@@ -1,7 +1,7 @@
 {% extends "learning_logs/base.html" %}
 
 {% block title %}Edit Content Entry{% endblock title %}
-{% block header %}Edit Entry Page{% endblock header %}
+{% block header %}Delete Entry Page{% endblock header %}
 {% block content%}
 
     <p><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a> </p>
@@ -10,7 +10,7 @@
 
     <form action="{% url 'learning_logs:delete_entry' entry.id %}" method="get">
         {% csrf_token %}
-        {{ form.as_div }}
+        {{ form.as_p }}
         <button name="Delete" formmethod="post">Yes?</button>
 
         <a href="{% url 'learning_logs:topic' topic.id %}">
