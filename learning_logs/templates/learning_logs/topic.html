@@ -3,10 +3,11 @@
 
 {% block content %}
 
-    <p>Entries:</p>
     <p>
-        <a href="{% url 'learning_logs:new_entry' topic.id %}">Add a new Entry!</a>
+        <a href="{% url 'learning_logs:new_entry' topic.id %}">Add a New Topic Entry!</a>
+
     </p>
+    <h3>Entries:</h3>
     <ul>
         {% for entry in entries %}
         <li>
