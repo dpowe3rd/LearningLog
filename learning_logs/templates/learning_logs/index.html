@@ -1,9 +1,18 @@
 {% extends "learning_logs/base.html" %}
 
-{% block title %}Anime Ratings{% endblock title %}
-{% block header %}Anime Ratings Website{% endblock header %}
+{% block header %}
+    <div class="jumbotron">
+        <h2>Rate the anime you've watched!</h2>
+    </div>
+{% endblock header %}
 
 {% block content %}
-<p>Anime Ratings helps you keep track of your anime watching
-    or manga reading for any genre of anime or manga you love.</p>
-{% endblock %}
+    <h3>
+        <a href="{% url 'users:register' %}">Register an account</a> to rate and document how you feel
+        about any and all anime you've watched or are watching.
+    </h3>
+    <h3>
+        Whenever you finish an anime or an important plot point in your current favorite anime, make an entry
+        summarizing you thoughts on it and your personal rating.
+    </h3>
+{% endblock content %}
