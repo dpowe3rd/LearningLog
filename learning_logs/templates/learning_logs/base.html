@@ -1,7 +1,8 @@
 {% load bootstrap3 %}
+{% load static%}
 
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,17 +15,21 @@
 
     </head>
     <body>
-
+<!---->
         <!-- Static navbar-->
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
+        <nav class="navbar navbar-default navbar-static-top" style="background-color: #8cffe6;">
+            <div class="container align-baseline">
 
+                <a class="navbar-brand"><img src="{% static 'learning_logs/logo.png' %}" width="35" height="30"
+                                             class="align-baseline" alt="Darrell_Logo"> </a>
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed"
                             data-toggle="collapse" data-target="#navbar"
                             aria-expanded="false" aria-controls="navbar">
                     </button>
-                    <a class="navbar-brand align-top" href="{% url 'learning_logs:index' %}">Learning Log</a>
+
+                      <a class="navbar-brand" href="{% url 'learning_logs:index' %}">Learning Log</a>
+
                 </div>
 
                 <div id="navbar" class="navbar-collapse collapse align-top">
