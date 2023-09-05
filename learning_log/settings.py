@@ -30,8 +30,8 @@ SECRET_KEY = os.environ.get(
     default=secrets.token_urlsafe(nbytes=64),
 )
 
-IS_HEROKU_APP = os.environ.get('ON_HEROKU')
-HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
+# IS_HEROKU_APP = os.environ.get('ON_HEROKU')
+# HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -91,12 +91,12 @@ WSGI_APPLICATION = 'learning_log.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if IS_HEROKU_APP:
-    DATABASE_URL = 'postgresql://<postgresql>'
-else:
-    DATABASE_URL = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-
-DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
+# if IS_HEROKU_APP:
+#     DATABASE_URL = 'postgresql://<postgresql>'
+# else:
+#     DATABASE_URL = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+#
+# DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 
 # Password validation
@@ -146,25 +146,24 @@ BOOTSTRAP3 = {
     'include_jquery': True,
 }
 
-# # Settings for Heroku
-# if IS_HEROKU_APP
-#
-# cwd = os.getcwd()
-# if cwd == '/app' or cwd[:4] == '/tmp':
-#     import dj_database_url
-#     DATABASES = {
-#         'default': dj_database_url.config(default='postgres://localhost')
-#     }
-#
-#     # Honor the 'X-Forwarded-Proto' header for request.is.secure().
-#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-#
-#     # Allow all host headers.
-#     ALLOWED_HOSTS = ['*']
-#
-#     # Static asset configuration
-#     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-#     STATIC_ROOT = 'staticfiles'
-#     STATICFILES_DIRS = (
-#         os.path.join(BASE_DIR, 'static'),
-#     )
+# Settings for Heroku
+
+cwd = os.getcwd()
+if cwd == '/app' or cwd[:4] == '/tmp':
+    import dj_database_url
+    DATABASES = {
+        'default': dj_database_url.config(default='postgres://localhost')
+    }
+
+    # Honor the 'X-Forwarded-Proto' header for request.is.secure().
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    # Allow all host headers.
+    ALLOWED_HOSTS = ['*']
+
+    # Static asset configuration
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = 'staticfiles'
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+    )
