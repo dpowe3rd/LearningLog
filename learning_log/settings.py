@@ -13,7 +13,6 @@ import os
 import secrets
 from pathlib import Path
 
-import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
