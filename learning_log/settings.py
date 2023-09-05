@@ -68,7 +68,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'learning_logs.urls'
+ROOT_URLCONF = 'learning_log.urls'
 
 TEMPLATES = [
     {
