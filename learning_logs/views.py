@@ -87,7 +87,7 @@ def edit_entry(request, entry_id):
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
 
-    check_topic_owner(topic.owner, request.user) # Make sure the topic belongs to the current user
+    check_topic_owner(topic.owner, request.user)  # Make sure the topic belongs to the current user
 
     if request.method != 'POST':
         # Initial request; pre-fill form with the current entry.
