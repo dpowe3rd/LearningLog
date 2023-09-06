@@ -7,8 +7,7 @@ from . import views
 
 app_name = 'users'
 urlpatterns = [
-    # Include default auth urls
-    path('', include('django.contrib.auth.urls')),
+    
     # Login Page
     path('login/', login, {'template_name': 'users/login.html'}, name='login'),
     # Log out page
