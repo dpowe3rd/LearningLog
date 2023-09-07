@@ -26,7 +26,7 @@ def register(request):
             new_user = form.save()
             authenticated_user = authenticate(username=new_user.username, password=request.POST['password1'])
             # Login the new user and redirect to homepage
-            login(request, )
+            login(request, new_user)
             return HttpResponseRedirect(reverse('learning_logs:index'))
 
     context = {'form': form}

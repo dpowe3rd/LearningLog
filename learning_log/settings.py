@@ -29,12 +29,9 @@ SECRET_KEY = os.environ.get(
     default=secrets.token_urlsafe(nbytes=64),
 )
 
-# IS_HEROKU_APP = os.environ.get('ON_HEROKU')
-# HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
-
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
