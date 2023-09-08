@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.urls import reverse_lazy
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 
@@ -10,7 +10,7 @@ from django.contrib.auth.forms import UserCreationForm
 def logout_view(request):
     """Log the user out"""
     logout(request)
-    return HttpResponseRedirect(reverse('learning_logs:index'))
+    return HttpResponseRedirect(reverse_lazy('learning_logs:index'))
 
 
 def register(request):
@@ -27,7 +27,7 @@ def register(request):
             authenticated_user = authenticate(username=new_user.username, password=request.POST['password1'])
             # Login the new user and redirect to homepage
             login(request, new_user)
-            return HttpResponseRedirect(reverse('learning_logs:index'))
+            return HttpResponseRedirect(reverse_lazy('learning_logs:index'))
 
     context = {'form': form}
     return render(request, 'users/register.html', context)
